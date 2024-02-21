@@ -1,0 +1,66 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.square {
+  width: clamp(100px, 10vw, 300px);
+  height: clamp(100px, 10vw, 300px);
+  margin-top: 100px;
+  position: absolute;
+  animation-direction: alternate;
+  animation-timeline: scroll(block nearest);
+  border-bottom: 5px solid black;
+  bottom: 0;
+}
+
+#square-1 {
+  background-color: rgb(20, 169, 255);
+  animation-name: rotateAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+#square-2 {
+  background-color: rgb(255, 20, 20);
+  animation-name: scaleAnimation;
+  left: 20%;
+}
+#square-3 {
+  background-color: rgb(126, 255, 20);
+  animation-name: fade;
+  left: 40%;
+}
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scaleAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+#container {
+  height: 100dvh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+#stretcher {
+  height: 200dvh;
+}
